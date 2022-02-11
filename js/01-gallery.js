@@ -17,5 +17,6 @@ function createGalleryItems(items){
     `    
     })
 }
+markup(galleryItems)
 console.log(galleryItems);
 console.log(markup[0])
