@@ -38,18 +38,17 @@ const modal = basicLightbox.create(`
         "${src}" width="800" height="600">  
         </img>  
 `);
-
 modal.show(src);
-window.addEventListener('keypress',onEscKeyPress);
+window.addEventListener('keydown',onEscKeyPress);
 function onEscKeyPress(event){
-  console.log(event)
-  if(event.code === "escape")
-  modal.close()
+  console.log(event.code)
+  if(event.code === 'Escape'){
+    modal.close();
+    window.removeEventListener('keydown',onEscKeyPress)
+  };
+ 
+};
+
 }
 
-
-}
-
-// console.log(instance)
-// instance.show()
 
