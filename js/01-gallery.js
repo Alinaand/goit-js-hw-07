@@ -14,7 +14,7 @@ function createGalleryItems(items){
     <img
       class="gallery__image"
       src="${preview}"
-      data-source="large-image.jpg"
+      data-source="${original}"
       alt="${description}"
     />
   </a>
@@ -22,18 +22,34 @@ function createGalleryItems(items){
     `    
     }).join('');
 };
+// console.log(imageItems)
+
 imageGallery.addEventListener('click',onImageClick)
 function onImageClick(event){
-  e.preventDefault()
- if(!event.target.classlist.contains('gallery__item')) {
+  console.dir(event)
+  event.preventDefault();
+ if(event.target.nodeName !== 'IMG') {
    return;
  };
+let src= event.target.dataset.source;
+
+const modal = basicLightbox.create(`
+        <img class="gallery__gallery__image" src=
+        "${src}" width="800" height="600">  
+        </img>  
+`);
+
+modal.show(src);
+window.addEventListener('keypress',onEscKeyPress);
+function onEscKeyPress(event){
+  console.log(event)
+  if(event.code === "escape")
+  modal.close()
+}
+
 
 }
-const instance = basicLightbox.create(`
-    <img src="assets/images/image.png" width="800" height="600">
-`)
 
-instance.show()
-function onEscKeyPress(event){}
+// console.log(instance)
+// instance.show()
 
