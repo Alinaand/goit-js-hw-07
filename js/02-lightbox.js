@@ -16,3 +16,7 @@ function createGalleryItems(items){
     }).join('');
 };
 console.log(galleryItems);
+let gallery = new SimpleLightbox('.gallery a',
+{captions:true,
+captionsData:'alt',
+captionDelay: 250,});
