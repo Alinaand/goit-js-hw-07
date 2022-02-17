@@ -22,8 +22,6 @@ function createGalleryItems(items){
     `    
     }).join('');
 };
-// console.log(imageItems)
-
 imageGallery.addEventListener('click',onImageClick)
 let modal;
 function onImageClick(event){
@@ -43,18 +41,15 @@ let src= event.target.dataset.source;
 onClose: (modal) => {removeEventListenerEsc()}
 });
 modal.show(src);
-
 };
 function onEscKeyPress(event){
-  console.log(event.code)
   if(event.code === 'Escape'){
     modal.close();
   };
 };
 function addEventListenerEsc() {
   window.addEventListener('keydown',onEscKeyPress);
-}
-
+};
 function removeEventListenerEsc(){
-window.removeEventListener('keydown',onEscKeyPress)
-}
+window.removeEventListener('keydown',onEscKeyPress);
+};
