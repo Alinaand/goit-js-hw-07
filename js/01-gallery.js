@@ -37,8 +37,10 @@ let src= event.target.dataset.source;
         "${src}" width="800" height="600">  
         </img>  
 `,
-{onShow: (modal) => {addEventListenerEsc()},
-onClose: (modal) => {removeEventListenerEsc()}
+{onShow: (modal) => {
+  window.addEventListener('keydown',onEscKeyPress)},
+onClose: (modal) => {
+  window.removeEventListener('keydown',onEscKeyPress)}
 });
 modal.show(src);
 };
@@ -46,10 +48,4 @@ function onEscKeyPress(event){
   if(event.code === 'Escape'){
     modal.close();
   };
-};
-function addEventListenerEsc() {
-  window.addEventListener('keydown',onEscKeyPress);
-};
-function removeEventListenerEsc(){
-window.removeEventListener('keydown',onEscKeyPress);
 };
